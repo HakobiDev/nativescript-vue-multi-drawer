@@ -16,7 +16,6 @@
     <template v-for="side in computedSidesEnabled">
       <!-- Drawer Content -->
       <GridLayout
-        :key="side"
         @layoutChanged="onDrawerLayoutChange(side)"
         @tap="noop"
         @pan="onDrawerPan(side, $event)"
@@ -27,7 +26,6 @@
       </GridLayout>
       <!-- Open Trigger -->
       <Label
-        :key="side"
         v-show="computedShowSwipeOpenTrigger(side)"
         v-bind="computedSwipeOpenTriggerProperties(side)"
         @pan="onOpenTriggerPan(side, $event)"
@@ -37,7 +35,7 @@
 </template>
 
 <script>
-import { Utils } from "@nativescript/core";
+import Utils from "@nativescript/core";
 import mergeOptions from "merge-options";
 import { defaultOptions } from "../index";
 
